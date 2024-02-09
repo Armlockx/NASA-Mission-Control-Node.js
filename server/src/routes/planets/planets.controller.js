@@ -1,7 +1,7 @@
-const {getAllPlanets} = require('../../models/planets.model'); //motherfucking '{planets}' instead of 'planets'
+const { getAllPlanets } = require('../../models/planets.model'); //motherfucking '{planets}' instead of 'planets'
 
-function httpGetAllPlanets(req, res){
-    return res.status(200).json(getAllPlanets());
+async function httpGetAllPlanets(req, res){
+    return res.status(200).json(await getAllPlanets());
 }
 
 module.exports = {
