@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Node.js, Express, React, and some database soon... 🐒",
   "main": "index.js",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "install-server": "npm install --prefix server",
     "install-client": "npm install --prefix client",
