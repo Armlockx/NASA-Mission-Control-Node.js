@@ -3,11 +3,16 @@ const {
     scheduleNewLaunch ,
     existsLaunchWithId,
     abortLaunchById,
-} = require('../../models/launches.model');    //laucnhes is a Map
+} = require('../../models/launches.model');
 
-//manipulates data from launches that come as Map and turns it into a json object
+const {
+    getPagination,
+} = require('../../services/query');
+
 async function httpGetAllLaunches(req, res) {
-    return res.status(200).json(await getAllLaunches());
+    const { skip, limit } = getPagination(req.query);
+    const launches = await getAllLaunches(skip, limit);
+    return res.status(200).json(launches);
 }
 
 async function httpAddNewLaunch(req, res) {
